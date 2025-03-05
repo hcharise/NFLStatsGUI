@@ -12,9 +12,17 @@ namespace MyWPFApp
 
         private void ProcessButton_Click(object sender, RoutedEventArgs e)
         {
+            // will use if/when we add user choosing team
             string input = InputTextBox.Text;
 
-            OutputTextBlock.Text = "Hello!";
+            // Initialize the JSON handler, responsible for fetching and deserializing data
+            JsonHandler jsonHandler = new JsonHandler();
+
+            TeamHandler teamHandler = new TeamHandler(jsonHandler, 1);
+            teamHandler.LoadJsonData();
+
+
+            OutputTextBlock.Text = teamHandler.PrintAllStats();
         }
     }
 }
