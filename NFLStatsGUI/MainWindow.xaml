@@ -3,8 +3,43 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="NFL Stats Processor" Height="523" Width="807">
     <Grid>
-        <TextBox x:Name="InputTextBox" Width="200" Height="30" VerticalAlignment="Top" Margin="172,10,435,0" TextChanged="InputTextBox_TextChanged"/>
-        <Button Content="Process" Width="100" Height="30" Click="ProcessButton_Click" Margin="602,10,105,467"/>
-        <TextBlock x:Name="OutputTextBlock" VerticalAlignment="Top" Margin="10,100,10,0" FontFamily="Consolas" Height="407"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Rectangle Grid.Row="0" Fill="LightGray" />
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Row="0" Text="Team Number:  " VerticalAlignment="Center" HorizontalAlignment="Right" />
+                <TextBox x:Name="TeamNumInput"  Grid.Row="0" Grid.Column="1" Width="100" Height="20" VerticalAlignment="Center" HorizontalAlignment="Left" />
+
+                <TextBlock Grid.Row="1" Text="Game Number: " VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                <TextBox x:Name="GameNumInput" Grid.Row="1" Grid.Column="1" Width="100" Height="20" VerticalAlignment="Center" HorizontalAlignment="Left" />
+
+            </Grid>
+
+            <Button Grid.Column="1" Content="Show Stats" Width="100" Height="30" Click="ShowStatsButton_Click" />
+
+        </Grid>
+
+        <TextBlock Grid.Row="1" x:Name="OutputTextBlock" FontFamily="Consolas" Margin="10, 10, 10, 10"/>
+
     </Grid>
 </Window>
