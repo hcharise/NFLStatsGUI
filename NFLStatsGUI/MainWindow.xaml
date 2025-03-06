@@ -4,13 +4,16 @@
         Title="NFL Stats Processor" Height="523" Width="807">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="20" />
             <RowDefinition Height="70" />
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <Rectangle Grid.Row="0" Fill="LightGray" />
+        <TextBlock Grid.Row="0" Foreground="White" Background="DarkSlateGray" />
 
-        <Grid Grid.Row="0">
+        <Rectangle Grid.Row="1" Fill="LightGray" />
+
+        <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />
@@ -27,22 +30,22 @@
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
 
-                <TextBlock Grid.Row="0" Text="Team Number:  " VerticalAlignment="Center" HorizontalAlignment="Right" />
+                <Label Grid.Row="0" Content="Team Number:  " VerticalAlignment="Center" HorizontalAlignment="Right" />
                 <TextBox x:Name="TeamNumInput"  Grid.Row="0" Grid.Column="1" Width="100" Height="20" VerticalAlignment="Center" HorizontalAlignment="Left" />
 
-                <TextBlock Grid.Row="1" Text="Game Number: " VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                <Label Grid.Row="1" Content="Game Number: " VerticalAlignment="Center" HorizontalAlignment="Right"/>
                 <TextBox x:Name="GameNumInput" Grid.Row="1" Grid.Column="1" Width="100" Height="20" VerticalAlignment="Center" HorizontalAlignment="Left" />
 
             </Grid>
 
-            <Button Grid.Column="1" Content="Show Stats" Width="100" Height="30" Click="ShowStatsButton_Click" />
+            <Button Grid.Column="1" Background="AliceBlue" Content="Show Stats" Width="100" Height="30" Click="ShowStatsButton_Click" />
 
         </Grid>
 
-        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto" 
+        <ScrollViewer Grid.Row="2" HorizontalScrollBarVisibility="Auto" 
               VerticalScrollBarVisibility="Auto"
               >
-            <TextBlock x:Name="OutputTextBlock" FontFamily="Consolas" Margin="10, 10, 10, 10"/>
+            <TextBlock x:Name="OutputTextBlock" FontFamily="Consolas" Margin="10, 10, 10, 10" />
         </ScrollViewer>
 
     </Grid>
