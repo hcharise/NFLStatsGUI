@@ -13,8 +13,10 @@ namespace MyWPFApp
         private async void ShowStatsButton_Click(object sender, RoutedEventArgs e)
         {
             string teamNumStr = TeamNumInput.Text;
+            string gameNumStr = GameNumInput.Text;
 
             int teamNum = ConvertAndValidateInt(teamNumStr, 1, 32);
+            int gameNum = ConvertAndValidateInt(gameNumStr, 1, 16);
 
             // Initialize the JSON handler, responsible for fetching and deserializing data
             JsonHandler jsonHandler = new JsonHandler();
@@ -22,8 +24,7 @@ namespace MyWPFApp
             TeamHandler teamHandler = new TeamHandler(jsonHandler, teamNum);
             await teamHandler.LoadJsonData();
 
-
-            OutputTextBlock.Text = teamHandler.PrintAllStats();
+            OutputTextBlock.Text = teamHandler.PrintSpecificMatchUpStats(gameNum);
         }
 
         // Converts an input to a int (if possible) and checks if within range; reprompts if not an int within range

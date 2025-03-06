@@ -13,6 +13,7 @@ public class TeamHandler
     private readonly JsonHandler _jsonHandler; // Handles fetching and deserializing JSON data.
     private TeamMatchUpsThisSeason _matchUpsThisSeason; // Stores the deserialized match up statistics.
     private int _teamNum; // Stores the team's number from URL
+    private int _gameNum; // Stores the team's number from URL
     public string TeamName; // Stores the team's name
 
     // Initializes a new instance of the <see cref="MenuHandler"/> class.
@@ -42,12 +43,12 @@ public class TeamHandler
 
     
     // Prints statistics for all available matchups.
-    public string PrintAllStats()
+    public string PrintSpecificMatchUpStats(int gameNum)
     {
         string returnString;
         try
         {
-            returnString = _matchUpsThisSeason.matchUpStats[0].PrintStats();
+            returnString = _matchUpsThisSeason.matchUpStats[gameNum - 1].PrintStats();
         }
         catch (Exception ex)
         {
@@ -56,22 +57,7 @@ public class TeamHandler
         }
 
         return returnString;
-
-        //foreach (var matchUpStat in _matchUpsThisSeason.matchUpStats)
-        //{
-        //    return matchUpStat.PrintStats();
-        //}
-        //return "Error";
     }
-
-    /*
-    // Prompts the user to enter a specific match up number and prints the corresponding statistics.
-    public void PrintSpecificMatchUpStats(int matchUpNum)
-    {
-        Console.WriteLine($"Here are the stats for {TeamName} from match up #{matchUpNum}!\n");
-        _matchUpsThisSeason.matchUpStats[matchUpNum - 1].PrintStats();
-    }
-    */
 
     /*
     // Calulates and prints the record (wins, losses, and ties) for this team
