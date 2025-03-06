@@ -1,4 +1,7 @@
-﻿/// <summary>
+﻿
+using System.Text;
+
+/// <summary>
 /// Represents the statistics for a single matchup between two teams.
 /// This class holds details about the match up, including team names, final score,
 /// and various in-match up statistics for both home and visiting teams.
@@ -17,58 +20,47 @@ public class MatchUpStats
     // Prints formatted statistics for the match up, displaying all in-match up metrics for both the home and visiting teams
     public string PrintStats()
     {
-        string strFormat;
-        /*
-        Console.WriteLine($"Match Up Statistics - {homeTeamName} vs. {visTeamName}");
+        StringBuilder sb = new StringBuilder();
+        sb.AppendLine($"Match Up Statistics - {homeTeamName} vs. {visTeamName}");
 
-        strFormat = String.Format("{0,-11}{1, 11}", "Match Date:", date);
-        Console.WriteLine(strFormat);
+        sb.AppendLine($"{"Match Date:",-11}{date, 11}");
 
-        strFormat = String.Format("{0,-11}{1, 11}", "Final?", isFinal);
-        Console.WriteLine(strFormat);
+        sb.AppendLine($"{"Final?",-11}{isFinal, 11}");
 
-        strFormat = String.Format("{0,-11}{1, 11} {2,22}|{3,22}|", "Neutral? ", neutral, $"Home: {homeTeamName}", $"Visiting: {visTeamName}");
-        Console.WriteLine(strFormat);
+        sb.AppendLine($"{"Neutral? ",-11}{neutral, 11} {$"Home: {homeTeamName}",22}|{$"Visiting: {visTeamName}",22}|");
 
-        Console.WriteLine($"---------------------------------------------------------------------");
-        */
-        // Print various match up statistics
+        sb.AppendLine(new string('-', 69));
 
-        strFormat = PrintStatRow("statIdCode", homeStats?.statIdCode, visStats?.statIdCode) +
-                    PrintStatRow("gameCode", homeStats?.gameCode, visStats?.gameCode) +
-                    PrintStatRow("teamCode", homeStats?.teamCode, visStats?.teamCode) +
-                    PrintStatRow("gameDate", homeStats?.gameDate, visStats?.gameDate) +
-                    PrintStatRow("rushYds", homeStats?.rushYds, visStats?.rushYds) +
-                    PrintStatRow("rushAtt", homeStats?.rushAtt, visStats?.rushAtt) +
-                    PrintStatRow("passYds", homeStats?.passYds, visStats?.passYds) +
-                    PrintStatRow("passAtt", homeStats?.passAtt, visStats?.passAtt) +
-                    PrintStatRow("passComp", homeStats?.passComp, visStats?.passComp) +
-                    PrintStatRow("penalties", homeStats?.penalties, visStats?.penalties) +
-                    PrintStatRow("penaltYds", homeStats?.penaltYds, visStats?.penaltYds) +
-                    PrintStatRow("fumblesLost", homeStats?.fumblesLost, visStats?.fumblesLost) +
-                    PrintStatRow("interceptionsThrown", homeStats?.interceptionsThrown, visStats?.interceptionsThrown) +
-                    PrintStatRow("firstDowns", homeStats?.firstDowns, visStats?.firstDowns) +
-                    PrintStatRow("thirdDownAtt", homeStats?.thridDownAtt, visStats?.thridDownAtt) +
-                    PrintStatRow("thirdDownConver", homeStats?.thirdDownConver, visStats?.thirdDownConver) +
-                    PrintStatRow("fourthDownAtt", homeStats?.fourthDownAtt, visStats?.fourthDownAtt) +
-                    PrintStatRow("fourthDownConver", homeStats?.fourthDownConver, visStats?.fourthDownConver) +
-                    PrintStatRow("timePoss", homeStats?.timePoss, visStats?.timePoss) +
-                    PrintStatRow("score", homeStats?.score, visStats?.score);
+        sb.AppendLine(PrintStatRow("statIdCode", homeStats?.statIdCode, visStats?.statIdCode));
+        sb.AppendLine(PrintStatRow("gameCode", homeStats?.gameCode, visStats?.gameCode));
+        sb.AppendLine(PrintStatRow("teamCode", homeStats?.teamCode, visStats?.teamCode));
+        sb.AppendLine(PrintStatRow("gameDate", homeStats?.gameDate, visStats?.gameDate));
+        sb.AppendLine(PrintStatRow("rushYds", homeStats?.rushYds, visStats?.rushYds));
+        sb.AppendLine(PrintStatRow("rushAtt", homeStats?.rushAtt, visStats?.rushAtt));
+        sb.AppendLine(PrintStatRow("passYds", homeStats?.passYds, visStats?.passYds));
+        sb.AppendLine(PrintStatRow("passAtt", homeStats?.passAtt, visStats?.passAtt));
+        sb.AppendLine(PrintStatRow("passComp", homeStats?.passComp, visStats?.passComp));
+        sb.AppendLine(PrintStatRow("penalties", homeStats?.penalties, visStats?.penalties));
+        sb.AppendLine(PrintStatRow("penaltYds", homeStats?.penaltYds, visStats?.penaltYds));
+        sb.AppendLine(PrintStatRow("fumblesLost", homeStats?.fumblesLost, visStats?.fumblesLost));
+        sb.AppendLine(PrintStatRow("interceptionsThrown", homeStats?.interceptionsThrown, visStats?.interceptionsThrown));
+        sb.AppendLine(PrintStatRow("firstDowns", homeStats?.firstDowns, visStats?.firstDowns));
+        sb.AppendLine(PrintStatRow("thirdDownAtt", homeStats?.thridDownAtt, visStats?.thridDownAtt));
+        sb.AppendLine(PrintStatRow("thirdDownConver", homeStats?.thirdDownConver, visStats?.thirdDownConver));
+        sb.AppendLine(PrintStatRow("fourthDownAtt", homeStats?.fourthDownAtt, visStats?.fourthDownAtt));
+        sb.AppendLine(PrintStatRow("fourthDownConver", homeStats?.fourthDownConver, visStats?.fourthDownConver));
+        sb.AppendLine(PrintStatRow("timePoss", homeStats?.timePoss, visStats?.timePoss));
+        sb.AppendLine(PrintStatRow("score", homeStats?.score, visStats?.score));
 
-        /*
-        Console.WriteLine("---------------------------------------------------------------------");
-        Console.WriteLine();
-        */
+        sb.AppendLine(new string('-', 69));
 
-        return strFormat;
-
+        return sb.ToString();
     }
 
     // Helper method to print a formatted row for a specific statistic.
     private string PrintStatRow(string statName, object homeValue, object visValue)
     {
-        string strFormat = String.Format("{0,22}|{1,22}|{2,22}|\n", statName, homeValue ?? "N/A", visValue ?? "N/A");
-        return strFormat;
+        return $"{statName,22}|{homeValue ?? "N/A",22}|{visValue ?? "N/A",22}|";
     }
 
 }
