@@ -9,7 +9,7 @@ namespace MyWPFApp
         public MainWindow()
         {
             InitializeComponent();
-            OutputTextBlock.Text = "Welcome!\n\nEnter a Team Number(1 - 32) and a Game Number(1 - 16) above.\nThen click \"Show Stats\" to view the stats from that match up in the 2020 NFL season.\n\nYay sports!";
+            OutputTextBlock.Text = "Welcome!\n\nEnter a Team Number (1 - 32) and a Game Number (1 - 16) above.\nThen click \"Show Stats\" to view the stats from that match up in the 2020 NFL season.\n\nYay sports!";
         }
 
         private async void ShowStatsButton_Click(object sender, RoutedEventArgs e)

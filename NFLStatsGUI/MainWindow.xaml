@@ -4,16 +4,13 @@
         Title="NFL Stats Processor" Height="523" Width="807">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="20" />
             <RowDefinition Height="70" />
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" Foreground="White" Background="DarkSlateGray" />
+        <Rectangle Grid.Row="0" Fill="LightGray" />
 
-        <Rectangle Grid.Row="1" Fill="LightGray" />
-
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />
@@ -42,7 +39,7 @@
 
         </Grid>
 
-        <ScrollViewer Grid.Row="2" HorizontalScrollBarVisibility="Auto" 
+        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto" 
               VerticalScrollBarVisibility="Auto"
               >
             <TextBlock x:Name="OutputTextBlock" FontFamily="Consolas" Margin="10, 10, 10, 10" />
