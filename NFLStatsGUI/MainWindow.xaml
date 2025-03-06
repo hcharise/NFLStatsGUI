@@ -3,8 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="NFL Stats Processor" Height="523" Width="807">
     <Grid>
-        <TextBox x:Name="InputTextBox" Width="200" Height="30" VerticalAlignment="Top" Margin="10"/>
-        <Button Content="Process" Width="100" Height="30" Click="ProcessButton_Click" Margin="10,50,0,0"/>
-        <TextBlock x:Name="OutputTextBlock" VerticalAlignment="Top" Margin="10,100,0,0" FontFamily="Consolas"/>
+        <TextBox x:Name="InputTextBox" Width="200" Height="30" VerticalAlignment="Top" Margin="172,10,435,0" TextChanged="InputTextBox_TextChanged"/>
+        <Button Content="Process" Width="100" Height="30" Click="ProcessButton_Click" Margin="602,10,105,467"/>
+        <TextBlock x:Name="OutputTextBlock" VerticalAlignment="Top" Margin="10,100,10,0" FontFamily="Consolas" Height="407"/>
     </Grid>
 </Window>
