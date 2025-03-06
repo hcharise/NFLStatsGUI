@@ -67,7 +67,7 @@ public class MatchUpStats
     // Helper method to print a formatted row for a specific statistic.
     private string PrintStatRow(string statName, object homeValue, object visValue)
     {
-        string strFormat = String.Format("{0,22}|{1,22}|{2,22}|", statName, homeValue ?? "N/A", visValue ?? "N/A");
+        string strFormat = String.Format("{0,22}|{1,22}|{2,22}|\n", statName, homeValue ?? "N/A", visValue ?? "N/A");
         return strFormat;
     }
 
