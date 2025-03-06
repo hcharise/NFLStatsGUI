@@ -39,7 +39,11 @@
 
         </Grid>
 
-        <TextBlock Grid.Row="1" x:Name="OutputTextBlock" FontFamily="Consolas" Margin="10, 10, 10, 10"/>
+        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto" 
+              VerticalScrollBarVisibility="Auto"
+              >
+            <TextBlock x:Name="OutputTextBlock" FontFamily="Consolas" Margin="10, 10, 10, 10"/>
+        </ScrollViewer>
 
     </Grid>
 </Window>
