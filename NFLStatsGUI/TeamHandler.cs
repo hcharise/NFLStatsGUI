@@ -31,7 +31,6 @@ public class TeamHandler
         try
         {
             _matchUpsThisSeason = await _jsonHandler.FetchAndDeserializeJson(url);
-            // Console.WriteLine("Stats retrieved successfully!\n");
         }
         catch (Exception ex)
         {

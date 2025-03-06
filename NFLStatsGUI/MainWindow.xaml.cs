@@ -10,7 +10,7 @@ namespace MyWPFApp
             InitializeComponent();
         }
 
-        private void ProcessButton_Click(object sender, RoutedEventArgs e)
+        private async void ProcessButton_Click(object sender, RoutedEventArgs e)
         {
             // will use if/when we add user choosing team
             string input = InputTextBox.Text;
@@ -19,7 +19,7 @@ namespace MyWPFApp
             JsonHandler jsonHandler = new JsonHandler();
 
             TeamHandler teamHandler = new TeamHandler(jsonHandler, 1);
-            teamHandler.LoadJsonData();
+            await teamHandler.LoadJsonData();
 
 
             OutputTextBlock.Text = teamHandler.PrintAllStats();
